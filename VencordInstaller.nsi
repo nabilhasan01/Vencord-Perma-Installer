@@ -15,8 +15,8 @@ Section "Install Vencord"
     CreateDirectory "$STARTMENU\Vencord"
 
     # Create shortcuts for Install and Uninstall scripts in the Start Menu
-    CreateShortCut "$STARTMENU\Programs\Vencord\Install Vencord.lnk" "$INSTDIR\Vencord-Install.cmd"
-    CreateShortCut "$STARTMENU\Programs\Vencord\Uninstall Vencord.lnk" "$INSTDIR\Vencord-Uninstall.cmd"
+    CreateShortCut "$STARTMENU\Vencord\Install Vencord.lnk" "$INSTDIR\Vencord-Install.cmd"
+    CreateShortCut "$STARTMENU\Vencord\Uninstall Vencord.lnk" "$INSTDIR\Vencord-Uninstall.cmd"
 
     # Add Persist script to the Startup folder for the current user
     SetOutPath "$APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
