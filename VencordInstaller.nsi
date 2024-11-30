@@ -1,7 +1,7 @@
 !include "StrFunc.nsh"
 
-Name "Vencord Installer"
-OutFile "VencordInstaller.exe"
+Name "Vencord Perma Installer"
+OutFile "VencordPermaInstaller.exe"
 InstallDir "C:\Vencord"
 
 Section "Install Vencord"
