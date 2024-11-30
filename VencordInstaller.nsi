@@ -2,7 +2,7 @@
 
 Name "Vencord Installer"
 OutFile "VencordInstaller.exe"
-InstallDir "$PROGRAMFILES\Vencord"
+InstallDir "C:\Vencord"
 
 Section "Install Vencord"
     CreateDirectory "$INSTDIR"
@@ -22,10 +22,11 @@ Section "Install Vencord"
     SetOutPath "$APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
     File "Vencord-Persist.cmd"
 
-    # Add $INSTDIR to system PATH environment variable
-    ReadRegStr $0 HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "Path"
-    StrCpy $1 "$INSTDIR;"
-    StrCpy $2 "$1$0"
-    WriteRegExpandStr HKLM "SYSTEM\CurrentControlSet\Control\Session Manager\Environment" "Path" "$2"
-    System::Call 'Kernel32::SendMessageTimeout(i 0xFFFF, i 0x1A, i 0, i "Environment", i 0, i 5000, *i)'
+    ; Check if the path entry already exists and write result to $0
+    nsExec::Exec 'echo %PATH% | find "C:\Vencord"'
+    Pop $0   ; gets result code
+
+    ${If} $0 = 0
+        nsExec::Exec 'setx PATH=%PATH%;C:\Vencord'
+    ${EndIf}
 SectionEnd
