@@ -1,9 +1,9 @@
 @echo off
-set VENCORD_PATH=C:\Vencord\vencord
-set DISCORD_PATH=%localappdata%\Discord\Update.exe
-set VENCORD_PERSIST_PATH=%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\Vencord-Persist.cmd
+set VENCORD=C:\Vencord\vencord
+set DISCORD_UPDATE=%localappdata%\Discord\Update.exe
+set VENCORD_PERSIST=%appdata%\Microsoft\Windows\Start Menu\Programs\Startup\Vencord-Persist.cmd
 
-%VENCORD_PATH% -uninstall -branch stable
-del /F "%VENCORD_PERSIST_PATH%"
-%DISCORD_PATH% --processStart Discord.exe
+%VENCORD% -uninstall -branch stable
+del /F "%VENCORD_PERSIST%"
+%DISCORD_UPDATE% --processStart Discord.exe
 exit

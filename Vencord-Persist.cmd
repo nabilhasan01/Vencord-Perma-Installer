@@ -1,8 +1,8 @@
 @echo off
-set VENCORD_PATH=C:\Vencord\vencord
-set DISCORD_PATH=%localappdata%\Discord\Update.exe
+set VENCORD=C:\Vencord\vencord
+set DISCORD_UPDATE=%localappdata%\Discord\Update.exe
 
-%VENCORD_PATH% -update-self
-%VENCORD_PATH% -install -branch stable
-%DISCORD_PATH% --processStart Discord.exe
+%VENCORD% -update-self
+%VENCORD% -install -branch stable
+%DISCORD_UPDATE% --processStart Discord.exe
 exit
