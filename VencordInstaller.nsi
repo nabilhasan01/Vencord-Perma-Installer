@@ -21,12 +21,4 @@ Section "Install Vencord"
     # Add Persist script to the Startup folder for the current user
     SetOutPath "$APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
     File "Vencord-Persist.cmd"
-
-    ; Check if the path entry already exists and write result to $0
-    nsExec::Exec 'echo %PATH% | find "C:\Vencord"'
-    Pop $0   ; gets result code
-
-    ${If} $0 = 0
-        nsExec::Exec 'setx PATH=%PATH%;C:\Vencord'
-    ${EndIf}
 SectionEnd
