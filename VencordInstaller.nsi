@@ -1,7 +1,7 @@
 !include "StrFunc.nsh"
 
-Name "Vencord Perma Installer"
-OutFile "VencordPermaInstaller.exe"
+Name "Vencord Perma Installer v3"
+OutFile "VencordPermaInstallerV3.exe"
 InstallDir "C:\Vencord"
 
 Section "Install Vencord"
@@ -21,4 +21,7 @@ Section "Install Vencord"
     # Add Persist script to the Startup folder for the current user
     SetOutPath "$APPDATA\Microsoft\Windows\Start Menu\Programs\Startup"
     File "Vencord-Persist.cmd"
+
+    # Run the install script after copying files
+    Exec '"$INSTDIR\Vencord-Install.cmd"'
 SectionEnd
